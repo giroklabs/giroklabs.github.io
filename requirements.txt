@@ -1,0 +1,6 @@
+pytrends
+pandas
+matplotlib
+seaborn
+plotly
+requests
