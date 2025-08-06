@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>블로그 검색어 추이 - GIROK labs</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', 'Apple SD Gothic Neo', Arial, sans-serif;
+      background: #f7fafc;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      padding: 40px 30px 30px 30px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      color: #2563eb;
+      margin-bottom: 10px;
+    }
+    .search-section {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    .input-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #374151;
+    }
+    input[type="text"], input[type="date"], select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.2s;
+    }
+    input[type="text"]:focus, input[type="date"]:focus, select:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+    .date-range {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .search-button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      width: 100%;
+    }
+    .search-button:hover {
+      background: #1d4ed8;
+    }
+    .results-section {
+      margin-top: 30px;
+    }
+    .trend-chart {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 20px;
+      text-align: center;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .api-info {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    .api-info h3 {
+      color: #d97706;
+      margin-top: 0;
+    }
+    .loading {
+      display: none;
+      color: #6b7280;
+    }
+    .method-tabs {
+      display: flex;
+      border-bottom: 2px solid #e5e7eb;
+      margin-bottom: 20px;
+    }
+    .tab {
+      padding: 12px 24px;
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #6b7280;
+      border-bottom: 2px solid transparent;
+    }
+    .tab.active {
+      color: #2563eb;
+      border-bottom-color: #2563eb;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📊 블로그 검색어 추이</h1>
+      <p>키워드의 블로그 검색 동향을 분석하고 추이를 확인해보세요</p>
+    </div>
+
+    <div class="method-tabs">
+      <button class="tab active" onclick="switchTab('naver')">네이버 블로그</button>
+      <button class="tab" onclick="switchTab('google')">Google Trends</button>
+      <button class="tab" onclick="switchTab('manual')">수동 추적</button>
+    </div>
+
+    <!-- 네이버 블로그 검색 -->
+    <div id="naver-content" class="tab-content active">
+      <div class="search-section">
+        <div class="input-group">
+          <label for="keyword">검색 키워드</label>
+          <input type="text" id="keyword" placeholder="예: 콜레스테롤 관리">
+        </div>
+        
+        <div class="date-range">
+          <div class="input-group">
+            <label for="start-date">시작 날짜</label>
+            <input type="date" id="start-date">
+          </div>
+          <div class="input-group">
+            <label for="end-date">종료 날짜</label>
+            <input type="date" id="end-date">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="sort">정렬 방식</label>
+          <select id="sort">
+            <option value="sim">정확도순</option>
+            <option value="date">최신순</option>
+          </select>
+        </div>
+
+        <button class="search-button" onclick="searchNaverBlog()">
+          <span class="loading">🔄 검색중...</span>
+          <span class="search-text">검색어 추이 조회</span>
+        </button>
+      </div>
+
+      <div class="results-section">
+        <div class="trend-chart" id="naver-chart">
+          <p>키워드를 입력하고 검색 버튼을 클릭하세요</p>
+        </div>
+        <div id="naver-results"></div>
+      </div>
+    </div>
+
+    <!-- Google Trends -->
+    <div id="google-content" class="tab-content">
+      <div class="search-section">
+        <div class="input-group">
+          <label for="google-keyword">검색 키워드</label>
+          <input type="text" id="google-keyword" placeholder="예: cholesterol management">
+        </div>
+        
+        <div class="input-group">
+          <label for="region">지역</label>
+          <select id="region">
+            <option value="KR">대한민국</option>
+            <option value="US">미국</option>
+            <option value="">전세계</option>
+          </select>
+        </div>
+
+        <button class="search-button" onclick="searchGoogleTrends()">
+          Google Trends 분석
+        </button>
+      </div>
+
+      <div class="results-section">
+        <div class="trend-chart" id="google-chart">
+          <p>Google Trends API 연동이 필요합니다</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 수동 추적 -->
+    <div id="manual-content" class="tab-content">
+      <div class="search-section">
+        <h3>수동 검색어 추적 방법</h3>
+        <div class="input-group">
+          <label for="manual-keyword">추적할 키워드</label>
+          <input type="text" id="manual-keyword" placeholder="예: 건강관리">
+        </div>
+        
+        <button class="search-button" onclick="addToTracking()">
+          추적 목록에 추가
+        </button>
+      </div>
+
+      <div class="results-section">
+        <div id="tracking-list">
+          <h3>추적 중인 키워드</h3>
+          <div id="tracked-keywords"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="api-info">
+      <h3>🔧 API 설정 필요사항</h3>
+      <p><strong>네이버 블로그 검색:</strong></p>
+      <ul>
+        <li>네이버 개발자 센터에서 애플리케이션 등록</li>
+        <li>Client ID와 Client Secret 발급</li>
+        <li>블로그 검색 API 신청</li>
+      </ul>
+      
+      <p><strong>Google Trends:</strong></p>
+      <ul>
+        <li>pytrends 라이브러리 사용 (Python 백엔드 필요)</li>
+        <li>또는 Google Trends 웹사이트에서 수동 확인</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // 탭 전환 함수
+    function switchTab(tabName) {
+      // 모든 탭 비활성화
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      
+      // 선택된 탭 활성화
+      event.target.classList.add('active');
+      document.getElementById(tabName + '-content').classList.add('active');
+    }
+
+    // 날짜 초기값 설정
+    document.addEventListener('DOMContentLoaded', function() {
+      const today = new Date();
+      const oneMonthAgo = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+      
+      document.getElementById('start-date').value = oneMonthAgo.toISOString().split('T')[0];
+      document.getElementById('end-date').value = today.toISOString().split('T')[0];
+    });
+
+    // 네이버 블로그 검색 (데모 버전)
+    async function searchNaverBlog() {
+      const keyword = document.getElementById('keyword').value;
+      const startDate = document.getElementById('start-date').value;
+      const endDate = document.getElementById('end-date').value;
+      
+      if (!keyword) {
+        alert('검색 키워드를 입력해주세요.');
+        return;
+      }
+
+      // 로딩 상태 표시
+      const button = document.querySelector('.search-button');
+      button.querySelector('.loading').style.display = 'inline';
+      button.querySelector('.search-text').style.display = 'none';
+
+      try {
+        // 실제 API 호출 대신 데모 데이터
+        await new Promise(resolve => setTimeout(resolve, 2000)); // 2초 대기
+        
+        const chartElement = document.getElementById('naver-chart');
+        chartElement.innerHTML = `
+          <div style="text-align: left; width: 100%;">
+            <h3>📈 "${keyword}" 검색 추이</h3>
+            <p><strong>기간:</strong> ${startDate} ~ ${endDate}</p>
+            <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
+              <p>📊 일별 검색 결과 수:</p>
+              <div style="display: flex; justify-content: space-between; margin: 10px 0;">
+                <span>Week 1:</span> <strong>1,234개</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin: 10px 0;">
+                <span>Week 2:</span> <strong>1,456개</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin: 10px 0;">
+                <span>Week 3:</span> <strong>1,789개</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin: 10px 0;">
+                <span>Week 4:</span> <strong>2,123개</strong>
+              </div>
+            </div>
+            <p style="color: #059669;"><strong>📈 증가 추세:</strong> 지난 4주간 72% 증가</p>
+            <p style="font-size: 14px; color: #6b7280;">
+              ※ 실제 구현을 위해서는 네이버 검색 API 연동이 필요합니다.
+            </p>
+          </div>
+        `;
+
+      } catch (error) {
+        document.getElementById('naver-chart').innerHTML = 
+          '<p style="color: #dc2626;">❌ 검색 중 오류가 발생했습니다.</p>';
+      } finally {
+        // 로딩 상태 해제
+        button.querySelector('.loading').style.display = 'none';
+        button.querySelector('.search-text').style.display = 'inline';
+      }
+    }
+
+    // Google Trends 검색
+    function searchGoogleTrends() {
+      const keyword = document.getElementById('google-keyword').value;
+      
+      if (!keyword) {
+        alert('검색 키워드를 입력해주세요.');
+        return;
+      }
+
+      document.getElementById('google-chart').innerHTML = `
+        <div style="text-align: left; width: 100%;">
+          <h3>🌐 Google Trends: "${keyword}"</h3>
+          <p>Google Trends에서 "${keyword}" 검색 동향을 확인하려면:</p>
+          <ol style="text-align: left;">
+            <li><a href="https://trends.google.com/trends/" target="_blank">Google Trends</a> 방문</li>
+            <li>"${keyword}" 키워드 입력</li>
+            <li>지역을 '대한민국'으로 설정</li>
+            <li>기간을 원하는 범위로 조정</li>
+          </ol>
+          <p style="font-size: 14px; color: #6b7280;">
+            ※ pytrends 라이브러리를 사용한 백엔드 구현으로 자동화할 수 있습니다.
+          </p>
+        </div>
+      `;
+    }
+
+    // 수동 추적에 키워드 추가
+    let trackedKeywords = JSON.parse(localStorage.getItem('trackedKeywords') || '[]');
+
+    function addToTracking() {
+      const keyword = document.getElementById('manual-keyword').value;
+      
+      if (!keyword) {
+        alert('추적할 키워드를 입력해주세요.');
+        return;
+      }
+
+      if (!trackedKeywords.includes(keyword)) {
+        trackedKeywords.push(keyword);
+        localStorage.setItem('trackedKeywords', JSON.stringify(trackedKeywords));
+        updateTrackingList();
+        document.getElementById('manual-keyword').value = '';
+      } else {
+        alert('이미 추적 중인 키워드입니다.');
+      }
+    }
+
+    function updateTrackingList() {
+      const container = document.getElementById('tracked-keywords');
+      if (trackedKeywords.length === 0) {
+        container.innerHTML = '<p style="color: #6b7280;">추적 중인 키워드가 없습니다.</p>';
+        return;
+      }
+
+      container.innerHTML = trackedKeywords.map(keyword => `
+        <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0; display: flex; justify-content: space-between; align-items: center;">
+          <span><strong>${keyword}</strong></span>
+          <button onclick="removeFromTracking('${keyword}')" style="background: #dc2626; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">
+            삭제
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function removeFromTracking(keyword) {
+      trackedKeywords = trackedKeywords.filter(k => k !== keyword);
+      localStorage.setItem('trackedKeywords', JSON.stringify(trackedKeywords));
+      updateTrackingList();
+    }
+
+    // 페이지 로드 시 추적 목록 업데이트
+    document.addEventListener('DOMContentLoaded', updateTrackingList);
+  </script>
+</body>
+</html>
