@@ -1,70 +1,192 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GIROK labs</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', 'Apple SD Gothic Neo', Arial, sans-serif;
-      background: #f7fafc;
-      margin: 0;
-      padding: 0;
-      color: #222;
+  <title>GIROK labs — 기록으로 더 나은 삶을 만듭니다</title>
+  <meta name="description" content="GIROK labs는 건강·투자·생산성 분야의 기록 서비스를 만듭니다. 개인화된 데이터 시각화와 기록 기반 자기계발 도구를 설계합니다.">
+  <meta property="og:title" content="GIROK labs — 기록으로 더 나은 삶을">
+  <meta property="og:description" content="건강·투자·생산성 기록 서비스를 만드는 1인 스튜디오.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Urbanist:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Epilogue', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            display: ['Urbanist', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              DEFAULT: '#f5e042',
+              foreground: '#222222',
+            },
+            border: '#e5e7eb',
+            muted: {
+              DEFAULT: '#f3f4f6',
+              foreground: '#6b7280',
+            }
+          }
+        }
+      }
     }
-    .container {
-      max-width: 600px;
-      margin: 60px auto;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-      padding: 40px 30px 30px 30px;
-      text-align: center;
-    }
-    h1 {
-      color: #2563eb;
-      margin-bottom: 10px;
-    }
-    h2 {
-      color: #333;
-      margin-top: 30px;
-      margin-bottom: 10px;
-    }
-    p {
-      color: #444;
-      line-height: 1.7;
-    }
-    .contact {
-      margin-top: 30px;
-      font-size: 1.05em;
-      color: #2563eb;
-    }
-    .logo {
-      width: 140px;
-      margin-bottom: 10px;
-    }
-  </style>
+  </script>
 </head>
-<body>
-  <div class="container">
-    <img src="logo.png" alt="GIROK labs logo" class="logo" />
-    <p>기록을 통해 더 나은 삶을 만드는 GIROK labs에 오신 것을 환영합니다.<br>
-    저희는 건강, 습관, 자기계발 등 다양한 분야의 기록 서비스를 개발합니다.</p>
-    <p style="margin-top:18px; font-size:0.98em; color:#666;">
-      개인정보처리방침은 <a href="https://giroklabs.github.io/privacy.html" target="_blank">여기</a>에서 확인하실 수 있습니다.
-    </p>
+<body class="min-h-screen bg-white text-[#222] font-sans antialiased">
+  <!-- Nav -->
+  <header class="sticky top-0 z-30 bg-white/85 backdrop-blur border-b border-border">
+    <div class="mx-auto max-w-5xl px-6 h-16 flex items-center gap-6">
+      <a href="#top" class="flex items-center gap-2.5">
+        <span class="w-7 h-7 rounded-[3px] bg-primary grid place-items-center font-display font-extrabold text-[13px] italic tracking-tight text-primary-foreground">
+          GL
+        </span>
+        <span class="font-display text-[15px] font-semibold tracking-tight">
+          GIROK labs
+        </span>
+      </a>
+      <div class="flex-1"></div>
+      <nav class="hidden sm:flex items-center gap-7 text-[13px] text-muted-foreground">
+        <a class="hover:text-black transition-colors" href="#work">What we build</a>
+        <a class="hover:text-black transition-colors" href="#about">About</a>
+        <a class="hover:text-black transition-colors" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <h2>주요 서비스</h2>
-    <p>
-      • 개인화된 데이터 시각화<br>
-      • 기록 기반 자기계발 도구
-    </p>
+  <!-- Hero -->
+  <section id="top" class="border-b border-border">
+    <div class="mx-auto max-w-5xl px-6 py-24 sm:py-32">
+      <p class="font-mono text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
+        Incheon · Independent studio · Est. 2024
+      </p>
+      <h1 class="mt-7 font-display text-[2.6rem] leading-[1.06] sm:text-6xl font-extrabold tracking-[-0.035em] max-w-3xl">
+        기록을 통해<br>
+        <span class="relative inline-block">
+          <span class="absolute inset-x-[-2px] bottom-1 h-3 sm:h-4 bg-primary -z-0"></span>
+          <span class="relative">더 나은 삶</span>
+        </span>을 만듭니다.
+      </h1>
+      <p class="mt-8 max-w-xl text-[15px] sm:text-base leading-relaxed text-muted-foreground">
+        GIROK labs는 건강, 투자, 생산성앱 등 다양한 분야의 기록 서비스를 만드는 1인 스튜디오입니다.<br>
+        매일의 작은 기록이 스스로를 이해하는 데이터가 되도록 설계합니다.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="#contact" class="inline-flex items-center gap-2 h-11 px-5 rounded-[3px] bg-[#222] text-white text-[13px] font-medium hover:opacity-90 transition-opacity">
+          함께 일하기
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+        <a href="https://github.com/giroklabs" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 h-11 px-5 rounded-[3px] border border-border text-[13px] font-medium hover:bg-gray-50 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          github.com/giroklabs
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <h2>연락처</h2>
-    <p class="contact">
-      이메일: <a href="mailto:greego86@gmail.com">greego86@gmail.com</a><br>
-      GitHub: <a href="https://github.com/giroklabs" target="_blank">github.com/giroklabs</a>
-    </p>
-  </div>
+  <!-- Services -->
+  <section id="work" class="border-b border-border">
+    <div class="mx-auto max-w-5xl px-6 py-20">
+      <div class="flex items-baseline gap-4">
+        <span class="font-mono text-[11px] text-muted-foreground">01</span>
+        <h2 class="font-display text-2xl font-bold tracking-tight">주요 서비스</h2>
+      </div>
+      <div class="mt-10 grid gap-px bg-border sm:grid-cols-3 border border-border">
+        <article class="bg-white p-7 group">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          <h3 class="mt-6 font-display text-[17px] font-semibold tracking-tight">한눈에 보는 투자·금융 지표</h3>
+          <p class="mt-3 text-[13.5px] leading-relaxed text-muted-foreground">
+            실시간 환율과 기업 공시, 배당과 자산 흐름까지. 복잡한 시장 데이터를 한눈에 파악하고 더 나은 결정을 내리도록 돕습니다.
+          </p>
+          <span class="mt-6 block h-[2px] w-8 bg-primary transition-all duration-300 group-hover:w-16"></span>
+        </article>
+        <article class="bg-white p-7 group">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"/><path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/></svg>
+          <h3 class="mt-6 font-display text-[17px] font-semibold tracking-tight">일상의 번거로움을 덜어주는 도구</h3>
+          <p class="mt-3 text-[13.5px] leading-relaxed text-muted-foreground">
+            HWP 문서 열람부터 놓치기 쉬운 알림과 생활 주기까지. 번거롭고 반복되는 일상을 한결 가볍고 편리하게 만듭니다.
+          </p>
+          <span class="mt-6 block h-[2px] w-8 bg-primary transition-all duration-300 group-hover:w-16"></span>
+        </article>
+        <article class="bg-white p-7 group">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+          <h3 class="mt-6 font-display text-[17px] font-semibold tracking-tight">나와 가족을 위한 건강·일상 기록</h3>
+          <p class="mt-3 text-[13.5px] leading-relaxed text-muted-foreground">
+            혈관 건강과 아이의 기질 리포트, 소소한 하루의 메모까지. 매일 쌓이는 작은 기록들이 나를 더 깊이 이해하는 데이터가 됩니다.
+          </p>
+          <span class="mt-6 block h-[2px] w-8 bg-primary transition-all duration-300 group-hover:w-16"></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="border-b border-border">
+    <div class="mx-auto max-w-5xl px-6 py-20 grid gap-12 md:grid-cols-[1fr_1.4fr]">
+      <div class="flex items-baseline gap-4">
+        <span class="font-mono text-[11px] text-muted-foreground">02</span>
+        <h2 class="font-display text-2xl font-bold tracking-tight">About</h2>
+      </div>
+      <div>
+        <p class="text-[15px] leading-relaxed">
+          기록은 가장 조용한 형태의 자기 이해입니다. 우리는 사용자가 남긴 데이터를 과장 없이 보여 주고, 그 안에서 스스로 방향을 찾을 수 있도록 돕는 도구를 만듭니다.
+        </p>
+        <p class="mt-4 text-[15px] leading-relaxed text-muted-foreground">
+          기획부터 디자인, 개발, 운영까지 한 사람의 손에서 끝까지 다듬어집니다. 그래서 만드는 제품의 수는 적지만, 하나하나 오래 씁니다.
+        </p>
+        <ul class="mt-8 flex flex-wrap gap-2">
+          <li class="rounded-full border border-border px-3 py-1 font-mono text-[11px] text-muted-foreground">투자·금융</li>
+          <li class="rounded-full border border-border px-3 py-1 font-mono text-[11px] text-muted-foreground">생산성 도구</li>
+          <li class="rounded-full border border-border px-3 py-1 font-mono text-[11px] text-muted-foreground">건강·라이프</li>
+          <li class="rounded-full border border-border px-3 py-1 font-mono text-[11px] text-muted-foreground">데이터 시각화</li>
+          <li class="rounded-full border border-border px-3 py-1 font-mono text-[11px] text-muted-foreground">모바일 앱</li>
+          <li class="rounded-full border border-border px-3 py-1 font-mono text-[11px] text-muted-foreground">1인 스튜디오</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="mx-auto max-w-5xl px-6 py-20">
+      <div class="flex items-baseline gap-4">
+        <span class="font-mono text-[11px] text-muted-foreground">03</span>
+        <h2 class="font-display text-2xl font-bold tracking-tight">연락처</h2>
+      </div>
+      <div class="mt-10 border-t border-border">
+        <a href="mailto:greego86@gmail.com" class="flex items-center gap-4 border-b border-border py-6 group">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <span class="font-mono text-[11px] uppercase tracking-widest text-muted-foreground w-20">Email</span>
+          <span class="font-display text-lg sm:text-xl font-semibold tracking-tight">greego86@gmail.com</span>
+          <span class="flex-1"></span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+        <a href="https://github.com/giroklabs" target="_blank" rel="noreferrer" class="flex items-center gap-4 border-b border-border py-6 group">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          <span class="font-mono text-[11px] uppercase tracking-widest text-muted-foreground w-20">GitHub</span>
+          <span class="font-display text-lg sm:text-xl font-semibold tracking-tight">github.com/giroklabs</span>
+          <span class="flex-1"></span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-border">
+    <div class="mx-auto max-w-5xl px-6 py-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] text-muted-foreground">
+      <span>© 2026 GIROK labs</span>
+      <span>
+        개인정보처리방침은 <a href="https://giroklabs.github.io/privacy.html" class="underline hover:text-black transition-colors">여기</a>에서 확인하실 수 있습니다.
+      </span>
+      <span class="flex-1"></span>
+      <span>Made in Incheon</span>
+    </div>
+  </footer>
 </body>
-</html> 
+</html>

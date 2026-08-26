@@ -1,0 +1,7 @@
+node_modules
+.output
+.nitro
+.tanstack
+dist
+.DS_Store
+IconKitchen-Output-6*
