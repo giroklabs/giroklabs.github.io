@@ -87,9 +87,8 @@ function Home() {
             </span>
             을 만듭니다.
           </h1>
-          <p className="mt-8 max-w-xl text-[15px] sm:text-base leading-relaxed text-muted-foreground">
-            GIROK labs는 건강, 투자, 생산성앱 등 다양한 분야의 기록 서비스를 만드는 1인
-            스튜디오입니다.
+          <p className="mt-8 max-w-2xl text-[15px] sm:text-base leading-relaxed text-muted-foreground break-keep">
+            GIROK labs는 건강, 투자, 생산성앱 등 다양한 분야의 기록 서비스를 만드는 1인 스튜디오입니다.
             <br />
             매일의 작은 기록이 스스로를 이해하는 데이터가 되도록 설계합니다.
           </p>
