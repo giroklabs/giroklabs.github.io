@@ -183,7 +183,7 @@ function Home() {
           </div>
           <div className="mt-10 border-t border-border">
             <a
-              href="mailto:greego86@gmail.com"
+              href="mailto:giroklabs@gmail.com"
               className="flex items-center gap-4 border-b border-border py-6 group"
             >
               <Mail className="size-4 text-muted-foreground" strokeWidth={1.5} />
@@ -191,7 +191,7 @@ function Home() {
                 Email
               </span>
               <span className="font-display text-lg sm:text-xl font-semibold tracking-tight">
-                greego86@gmail.com
+                giroklabs@gmail.com
               </span>
               <span className="flex-1" />
               <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
