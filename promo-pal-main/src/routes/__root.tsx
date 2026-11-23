@@ -77,6 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "1V92TXlKmLl8mh_JbOC6L00w4FHU8F7Tkise-9K-moA" },
       { title: "GIROK labs — 기록으로 더 나은 삶을 만듭니다" },
       {
         name: "description",
