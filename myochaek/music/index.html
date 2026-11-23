@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title id="page-title">오늘의 묘책 페어링</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #FAF7F2;
+      color: #1F1B16;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 32px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-serif {
+      font-family: 'Noto Serif KR', serif;
+    }
+    .card {
+      background: #FFFFFF;
+      border: 1px solid #EAE3D6;
+      border-radius: 32px;
+      width: 100%;
+      max-width: 390px;
+      padding: 36px 24px;
+      box-shadow: 0 10px 32px rgba(31,27,22,0.06);
+      text-align: center;
+      position: relative;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #8C6239;
+      background: #F5EFE6;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+    .avatar-wrap {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 18px;
+      background: #FAF7F2;
+      border: 1px solid #EAE3D6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .avatar-img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+    }
+    .book-tag {
+      font-size: 13px;
+      color: #8C6239;
+      font-weight: 500;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .track-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1F1B16;
+      line-height: 1.35;
+      margin-bottom: 6px;
+      word-break: keep-all;
+    }
+    .track-artist {
+      font-size: 15px;
+      color: #675E53;
+      margin-bottom: 20px;
+    }
+    .quote-box {
+      background: #FAF7F2;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #554C42;
+      margin-bottom: 28px;
+      word-break: keep-all;
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 52px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-ytm {
+      background: #1F1B16;
+      color: #FAF7F2;
+      border: 1px solid #1F1B16;
+    }
+    .btn-ytm svg { color: #FF0000; }
+    .btn-sp {
+      background: #FFFFFF;
+      color: #1F1B16;
+      border: 1.5px solid #EAE3D6;
+    }
+    .btn-sp svg { color: #1DB954; }
+    .footer {
+      font-size: 12px;
+      color: #9C9385;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge font-serif">컨시어지의 음악페어링 추천</div>
+    <div class="avatar-wrap">
+      <img src="../cat_avatar.png" alt="묘책 고양이" class="avatar-img" />
+    </div>
+    <div id="book-tag" class="book-tag">오늘의 책 · 《혼자가 혼자에게》</div>
+    <h1 id="track-title" class="track-title font-serif">Peace Piece</h1>
+    <p id="track-artist" class="track-artist">Bill Evans</p>
+    <div class="quote-box font-serif">
+      “조용히 생각을 비우고 책장을 넘길 때<br>마음을 편안하게 채워주는 연주곡입니다.”
+    </div>
+    <div class="btn-group">
+      <a id="btn-yt" href="https://www.youtube.com/results?search_query=Bill%20Evans%20Peace%20Piece" class="btn btn-ytm" onclick="window.location.href=this.href; return true;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        YouTube 에서 듣기
+      </a>
+      <a id="btn-sp" href="https://open.spotify.com/search/Bill%20Evans%20Peace%20Piece" class="btn btn-sp" onclick="window.location.href=this.href; return true;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 5.524 4.477 10 10 10 5.524 0 10-4.476 10-10 0-5.523-4.476-10-10-10zm4.586 14.424c-.18.295-.563.387-.857.207-2.35-1.435-5.308-1.76-8.793-.963-.335.077-.67-.133-.746-.469-.077-.334.132-.67.467-.747 3.808-.87 7.076-.496 9.721 1.12.295.18.388.564.208.852zm1.226-2.724c-.227.367-.71.482-1.077.254-2.69-1.654-6.79-2.134-9.97-1.168-.413.125-.852-.106-.977-.519s.106-.852.519-.977c3.636-1.103 8.163-.568 11.251 1.333.367.227.482.71.254 1.077zm.106-2.836C14.692 8.95 9.375 8.775 6.297 9.71c-.496.15-1.022-.134-1.172-.63-.15-.496.134-1.022.63-1.172 3.54-1.074 9.404-.866 13.115 1.338.445.264.59.838.327 1.282-.264.444-.838.59-1.28.327z"/></svg>
+        Spotify 에서 듣기
+      </a>
+    </div>
+    <div class="footer font-serif">기록랩스 · 묘책 (Myochaek)</div>
+  </div>
+
+  <script>
+    // Silently sync with daily music API
+    fetch('https://myochaek-auth.claim-ticket-worker.workers.dev/api/music/today')
+      .then(r => r.json())
+      .then(d => {
+        if (!d || !d.ok) return;
+        document.getElementById('page-title').textContent = `오늘의 묘책 페어링 · ${d.artist} - ${d.title}`;
+        document.getElementById('book-tag').textContent = `오늘의 책 · 《${d.bookTitle}》`;
+        document.getElementById('track-title').textContent = d.title;
+        document.getElementById('track-artist').textContent = d.artist;
+        if (d.ytUrl) document.getElementById('btn-yt').href = d.ytUrl;
+        if (d.spUrl) document.getElementById('btn-sp').href = d.spUrl;
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>
