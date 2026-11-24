@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>거래처 사업자 휴·폐업 조회하고 명함 사진으로 견적서 받는 곳 채우기</title>
+  <meta name="description" content="견적서·거래명세서를 보내기 전에 거래처 사업자등록번호의 계속사업자·휴폐업 상태를 확인하고, 명함이나 사업자등록증 사진으로 받는 곳을 자동 입력하는 방법입니다.">
+  <link rel="stylesheet" href="./style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@context": "Question",
+        "name": "사업자등록 상태조회를 하면 내 거래처 목록이 외부 서버에 저장되나요?",
+        "acceptedAnswer": {
+          "@context": "Answer",
+          "text": "아니요. 오픈견적은 사용자가 조회 버튼을 누른 사업자등록번호 1건만 국세청 공공데이터 조회에 전달하며, 거래처 상호·연락처나 조회 이력을 서버에 저장하지 않습니다."
+        }
+      },
+      {
+        "@context": "Question",
+        "name": "명함이나 사업자등록증 사진 글자 인식도 서버로 전송되나요?",
+        "acceptedAnswer": {
+          "@context": "Answer",
+          "text": "아니요. 명함과 사업자등록증 사진의 글자 인식은 아이폰 기기 내부(Apple Vision)에서 처리되어 사진이 외부 서버로 올라가지 않습니다."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="사이트 탐색">
+      <a class="brand" href="https://giroklabs.github.io/">GIROK labs</a>
+      <span class="badge">오픈견적 가이드 08 (출시 후 공개)</span>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+
+      <h1>거래처 사업자 휴·폐업 조회 &amp; 명함 사진 자동 입력</h1>
+      <p class="lead">처음 거래하는 업체에 견적서·거래명세서를 보내기 전 사업자 상태를 확인하고, 긴 상호·주소를 타자 치지 않고 채우는 방법입니다.</p>
+
+      <div class="top-cta">
+        <div>
+          <strong>오픈견적 — 국세청 상태조회·도로명주소·사진 인식</strong><br>
+          <small>명함·사업자등록증 폰 안 글자 인식 · 지난번처럼 담기 지원</small>
+        </div>
+        <a class="btn" href="https://apps.apple.com/kr/app/id6836805933?ct=seo-guide-08" rel="noopener">App Store에서 받기</a>
+      </div>
+
+      <section class="quick-steps" aria-label="거래처 자동 입력 및 상태 확인 4단계">
+        <h2>타자 없이 거래처 입력·확인하는 4단계</h2>
+        <ol>
+          <li>받는 곳(거래처) 화면에서 <strong>명함 또는 사업자등록증 사진</strong>을 찍거나 앨범에서 고르면 기기 내 글자 인식으로 상호·대표자·사업자번호가 채워집니다.</li>
+          <li>상호나 주소를 몰라도 <strong>도로명주소 검색</strong>으로 정확한 주소를 바로 넣을 수 있습니다.</li>
+          <li><strong>사업자 상태 확인</strong> 버튼을 눌러 해당 번호가 계속사업자(일반·간이과세자)인지 휴·폐업 상태인지 확인합니다.</li>
+          <li>한 번 보낸 거래처는 자동 저장되어, 다음 거래 때 <strong>'지난번처럼 담기'</strong>로 품목과 조건까지 한 번에 불러옵니다.</li>
+        </ol>
+      </section>
+
+      <h2>수동 입력 vs 오픈견적 자동 채우기</h2>
+      <div class="table-wrap" role="region" aria-label="거래처 입력 방식 비교표" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th>항목</th>
+              <th>직접 입력</th>
+              <th>오픈견적 사용 시</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>사업자번호·상호 입력</td>
+              <td>카톡·사진 보며 오타 주의해 입력</td>
+              <td>사진 글자 인식(기기 내) + 확인 후 바로 반영</td>
+            </tr>
+            <tr>
+              <td>휴·폐업 여부 확인</td>
+              <td>별도 사이트 접속 후 10자리 재입력</td>
+              <td>문서 작성 화면 안에서 바로 조회</td>
+            </tr>
+            <tr>
+              <td>반복 거래처 재작성</td>
+              <td>품목·부가세 조건 매번 새로 입력</td>
+              <td>'지난번처럼 담기'로 1초 재작성</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>자주 묻는 질문</h2>
+      <p><strong>Q. 거래처가 폐업 상태면 어떤 문제가 생기나요?</strong><br>폐업한 사업자와 거래하면 세금계산서 발급이나 매입세액 공제가 불가능할 수 있으므로, 큰 거래나 선납품 전에는 사업자 상태를 미리 확인해 두세요.</p>
+      <p><strong>Q. 휴·폐업 조회 결과만으로 법적 책임이 보장되나요?</strong><br>공공데이터 API 조회 시점의 상태 안내이며, 실제 세무·계약 판단은 국세청 홈택스 공식 확인 및 계약서 기준을 함께 확인하셔야 합니다.</p>
+
+      <div class="end-card">
+        <div>
+          <strong>오픈견적 — 현장에서 바로 쓰는 사장님 문서 도구</strong><br>
+          <small>견적서·거래명세서·청구서·영수증을 한 앱에서 관리하세요.</small>
+        </div>
+        <a class="btn" href="https://apps.apple.com/kr/app/id6836805933?ct=seo-guide-08-end" rel="noopener">App Store에서 받기</a>
+      </div>
+
+      <section class="related" aria-label="관련 가이드">
+        <h2>관련 가이드</h2>
+        <ul>
+          <li><a href="./06-iphone-quote-invoice-pdf.html">아이폰 거래명세서·견적서 1분 만에 PDF로 보내기</a></li>
+          <li><a href="./07-vat-separate-included-quote.html">견적서 부가세 별도·포함 계산과 거래명세서 전환 방법</a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <p>© GIROK labs · <a href="https://giroklabs.github.io/openquote/privacy.html">개인정보처리방침</a> · <a href="https://giroklabs.github.io/openquote/terms.html">이용약관</a></p>
+  </footer>
+</body>
+</html>

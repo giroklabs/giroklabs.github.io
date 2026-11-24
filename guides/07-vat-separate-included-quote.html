@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>견적서 부가세 별도·포함 계산 및 거래명세서 전환 방법</title>
+  <meta name="description" content="견적서 작성 시 헷갈리기 쉬운 부가세 별도·포함·면세 계산과 할인 차감 순서, 보낸 견적서를 거래명세서·청구서·영수증으로 바꾸는 방법입니다.">
+  <link rel="stylesheet" href="./style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@context": "Question",
+        "name": "부가세 별도와 부가세 포함은 어떻게 계산이 다른가요?",
+        "acceptedAnswer": {
+          "@context": "Answer",
+          "text": "부가세 별도는 공급가액에 10%를 더해 총액을 구하고, 부가세 포함은 총액에서 역산(총액 ÷ 1.1)해 공급가액과 세액을 나눕니다. 오픈견적은 문서 전체 합계 기준으로 계산하고 원 미만 금액을 절사합니다."
+        }
+      },
+      {
+        "@context": "Question",
+        "name": "견적서에 할인을 넣으면 부가세는 할인 전후 중 언제 계산되나요?",
+        "acceptedAnswer": {
+          "@context": "Answer",
+          "text": "오픈견적에서는 품목 합계에서 할인 금액을 먼저 뺀 뒤 부가가치세를 계산하며, PDF 표에도 '할인 -금액' 줄이 별도로 표시됩니다."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="사이트 탐색">
+      <a class="brand" href="https://giroklabs.github.io/">GIROK labs</a>
+      <span class="badge">오픈견적 가이드 07 (출시 후 공개)</span>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+
+      <h1>견적서 부가세 별도·포함 계산과 거래명세서 전환</h1>
+      <p class="lead">현장에서 가장 자주 틀리는 부가세 역산·할인 차감 계산과, 합의된 견적서를 거래명세서·영수증으로 이어 쓰는 순서입니다.</p>
+
+      <div class="top-cta">
+        <div>
+          <strong>오픈견적 — 부가세·할인·일금 자동 계산</strong><br>
+          <small>원 미만 절사 규칙 적용 · 견적서 → 거래명세서·청구서·영수증 전환</small>
+        </div>
+        <a class="btn" href="https://apps.apple.com/kr/app/id6836805933?ct=seo-guide-07" rel="noopener">App Store에서 받기</a>
+      </div>
+
+      <section class="quick-steps" aria-label="부가세 계산 및 문서 전환 기준">
+        <h2>부가세 3가지 모드와 문서 바꾸는 순서</h2>
+        <ol>
+          <li><strong>부가세 별도</strong>: 품목 합계(할인 차감 후)를 공급가액으로 두고 10% 부가세를 더해 합계 금액을 구합니다.</li>
+          <li><strong>부가세 포함</strong>: 안내한 총액을 기준으로 공급가액과 세액을 역산하며, 품목별 반올림 오차를 막기 위해 <strong>문서 전체 합계</strong> 기준으로 계산합니다.</li>
+          <li><strong>면세</strong>: 부가세를 0원으로 처리해 총액만 깔끔하게 표시합니다.</li>
+          <li>작업이 끝나면 작성한 견적서를 눌러 <strong>거래명세서 · 청구서 · 영수증</strong>으로 바로 바꾸고, 원래 견적서 번호를 근거로 남깁니다.</li>
+        </ol>
+      </section>
+
+      <h2>부가세 유형별 계산 비교</h2>
+      <div class="table-wrap" role="region" aria-label="부가세 계산 기준 비교표" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th>선택 항목</th>
+              <th>입력 기준(예: 100,000원)</th>
+              <th>공급가액</th>
+              <th>부가세</th>
+              <th>최종 합계</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>부가세 별도</td>
+              <td>공급가액 100,000원</td>
+              <td>100,000원</td>
+              <td>10,000원</td>
+              <td>110,000원</td>
+            </tr>
+            <tr>
+              <td>부가세 포함</td>
+              <td>총액 100,000원</td>
+              <td>90,910원</td>
+              <td>9,090원</td>
+              <td>100,000원</td>
+            </tr>
+            <tr>
+              <td>면세</td>
+              <td>면세 100,000원</td>
+              <td>100,000원</td>
+              <td>0원</td>
+              <td>100,000원</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>자주 묻는 질문</h2>
+      <p><strong>Q. 계약금과 잔금을 나눠서 청구할 수도 있나요?</strong><br>네. 오픈견적은 계약금·잔금 분할 청구와 미수금 관리 필터, 기한이 지난 청구서의 입금 요청 문구 복사 기능까지 지원합니다.</p>
+      <p><strong>Q. 거래명세서나 청구서가 세금계산서를 대체하나요?</strong><br>아니요. 세금계산서(부가가치세법 제32조 적격증빙)는 반드시 국세청 홈택스에서 발급해야 하며, 앱에서 만드는 문서는 거래 확인·청구용 증빙입니다.</p>
+
+      <div class="end-card">
+        <div>
+          <strong>오픈견적 — 계산 실수 없는 A4 PDF 견적서</strong><br>
+          <small>합계 금액이 바뀌면 하단 '일금 ○○원정' 한글 표기도 즉시 맞춰집니다.</small>
+        </div>
+        <a class="btn" href="https://apps.apple.com/kr/app/id6836805933?ct=seo-guide-07-end" rel="noopener">App Store에서 받기</a>
+      </div>
+
+      <section class="related" aria-label="관련 가이드">
+        <h2>관련 가이드</h2>
+        <ul>
+          <li><a href="./06-iphone-quote-invoice-pdf.html">아이폰 거래명세서·견적서 1분 만에 PDF로 보내기</a></li>
+          <li><a href="./08-client-biz-status-check-quote.html">거래처 사업자 휴·폐업 조회 및 명함 사진으로 받는 곳 채우기</a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <p>© GIROK labs · <a href="https://giroklabs.github.io/openquote/privacy.html">개인정보처리방침</a> · <a href="https://giroklabs.github.io/openquote/terms.html">이용약관</a></p>
+  </footer>
+</body>
+</html>
