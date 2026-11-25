@@ -160,7 +160,7 @@
 
   <script>
     // Silently sync with daily music API
-    fetch('https://myochaek-auth.claim-ticket-worker.workers.dev/api/music/today')
+    fetch('https://myochaek-media.claim-ticket-worker.workers.dev/api/music/today')
       .then(r => r.json())
       .then(d => {
         if (!d || !d.ok) return;
